@@ -10,10 +10,10 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
   _read() async {
-    final prefs = await SharedPreferences.getInstance();
+    final svlevel = await SharedPreferences.getInstance();
     final key = 'my_int_key';
-    final value = prefs.getInt(key) ?? 0;
-    print('read: $value');
+    final svlevelvalue = svlevel.getInt(key) ?? 0;
+    print('read: $svlevelvalue');
     Navigator.pushNamed(context, '/home');
   }
 

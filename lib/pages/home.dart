@@ -9,11 +9,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   _save() async {
-    final prefs = await SharedPreferences.getInstance();
+    final svlevel = await SharedPreferences.getInstance();
     final key = 'my_int_key';
-    final value = 42;
-    prefs.setInt(key, value);
-    print('saved $value');
+    final svlevelvalue = 0;
+    svlevel.setInt(key, svlevelvalue);
+    print('saved $svlevelvalue');
   }
 
   @override
@@ -33,12 +33,17 @@ class _HomeState extends State<Home> {
               ),
             ),
             ListTile(
-              title: Text('Menu'),
+              title: Text('About Page'),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(
                    builder: (BuildContext context) => AboutPage()),
                 );
               },
+            ),
+            Divider(
+              color: Colors.black,
+              height: 5.0,
             ),
             ListTile(
               title: Text('save'),
